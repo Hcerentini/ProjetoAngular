@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, untracked } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'projetoAngular';
+
+  public jogoEmAndamento: boolean = true
+  public tipoEncerramento!: string
+  
+  public encerrarJogo(tipo: string) : void {
+    console.log(tipo);
+    this.jogoEmAndamento = false
+    this.tipoEncerramento = tipo
+  }
+
+  public reiniciarJogo(): void {
+  this.jogoEmAndamento = true
+  this.tipoEncerramento == undefined
+  }
 }
